@@ -67,21 +67,6 @@
 
 (add-hook 'prog-mode-hook 'linum-mode)
 
-(require 'powerline)
-(powerline-center-evil-theme)
-
-(require 'evil)
-(evil-mode 1)
-(setq evil-want-Y-yank-to-eol nil)
-
-(defvar my/base16-colors base16-default-dark-colors)
-(setq evil-emacs-state-cursor   `(,(plist-get my/base16-colors :base0D) box))
-(setq evil-insert-state-cursor  `(,(plist-get my/base16-colors :base0D) box))
-(setq evil-motion-state-cursor  `(,(plist-get my/base16-colors :base0E) box))
-(setq evil-normal-state-cursor  `(,(plist-get my/base16-colors :base0B) box))
-(setq evil-replace-state-cursor `(,(plist-get my/base16-colors :base08) box))
-(setq evil-visual-state-cursor  `(,(plist-get my/base16-colors :base09) box))
-
 (require 'which-key)
 (which-key-mode)
 

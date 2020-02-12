@@ -120,8 +120,6 @@ To use =base16= themes, install the =base16-theme= package and run:
 (set-face-attribute 'default t :font "Liberation Mono-13" )
 #+end_SRC
 ** Cursor
-For more configuration, such as color states, check Section [[Evil]].
-
 Stop blinking:
 #+begin_SRC emacs-lisp :tangle init.el
 (blink-cursor-mode 0)
@@ -147,31 +145,7 @@ Enable line numbering for all programming modes:
 #+begin_SRC emacs-lisp :tangle init.el
 (add-hook 'prog-mode-hook 'linum-mode)
 #+end_SRC
-** Powerline
-Enable powerline:
-#+begin_SRC emacs-lisp :tangle init.el
-(require 'powerline)
-(powerline-center-evil-theme)
-#+end_SRC
 * Package Configuration
-** Evil                                                           :noexport:
-#+BEGIN_SRC emacs-lisp :tangle init.el
-(require 'evil)
-(evil-mode 1)
-(setq evil-want-Y-yank-to-eol nil)
-#+END_SRC
-
-Set the cursor color based on evil state:
-
-#+begin_SRC emacs-lisp :tangle init.el
-(defvar my/base16-colors base16-default-dark-colors)
-(setq evil-emacs-state-cursor   `(,(plist-get my/base16-colors :base0D) box))
-(setq evil-insert-state-cursor  `(,(plist-get my/base16-colors :base0D) box))
-(setq evil-motion-state-cursor  `(,(plist-get my/base16-colors :base0E) box))
-(setq evil-normal-state-cursor  `(,(plist-get my/base16-colors :base0B) box))
-(setq evil-replace-state-cursor `(,(plist-get my/base16-colors :base08) box))
-(setq evil-visual-state-cursor  `(,(plist-get my/base16-colors :base09) box))
-#+end_SRC
 ** Which-key
 Check the [[https://github.com/justbur/emacs-which-key][documentation]] for further configuration.
 #+begin_SRC emacs-lisp :tangle init.el
