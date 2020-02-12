@@ -22,6 +22,9 @@
                          ("gnu" . "https://elpa.gnu.org/packages/")))
 #+end_SRC
 
+#+RESULTS:
+: ((org . https://orgmode.org/elpa/) (melpa . https://melpa.org/packages/) (gnu . https://elpa.gnu.org/packages/))
+
 * Function
 ** Saving Session & History
 #+begin_SRC emacs-lisp :tangle init.el
@@ -73,8 +76,9 @@ Auto save based on keystrokes:
 ** Custom Configuration File
 Options chosen with the customize UI live here:
 #+begin_src emacs-lisp :tangle init.el
-(setq custom-file "~/.emacs.d/emacs-custom.el")
-(load custom-file)
+(defvar --custom-file (concat user-emacs-directory "emacs-custom.el"))
+(setq custom-file --custom-file)
+(if (file-exists-p --custom-file) (load custom-file))
 #+end_src
 ** Default Programs
 #+begin_SRC emacs-lisp :tangle init.el

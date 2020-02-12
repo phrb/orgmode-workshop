@@ -29,8 +29,9 @@
 
 (setq auto-save-interval 300)
 
-(setq custom-file "~/.emacs.d/emacs-custom.el")
-(load custom-file)
+(defvar --custom-file (concat user-emacs-directory "emacs-custom.el"))
+(setq custom-file --custom-file)
+(if (file-exists-p --custom-file) (load custom-file))
 
 (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program "firefox")
