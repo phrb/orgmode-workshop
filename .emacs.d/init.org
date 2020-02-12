@@ -13,13 +13,22 @@
 - Getting latest MELPA packages, but not using stable versions since
   many packages won't appear.
 - Getting latest org version:
+- Installing and updating packages
 
 #+begin_SRC emacs-lisp :tangle init.el
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (package-initialize)
 (require 'package)
 (setq package-archives '(("org" . "https://orgmode.org/elpa/")
                          ("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
+
+(dolist (package  '(lua-mode ace-window jupyter yaml-mode  ein org
+                             markdown-mode aggressive-indent counsel ess swiper kv which-key s
+                             powerline julia-mode ivy deferred dash-functional base16-theme))
+  (unless (package-installed-p package)
+    (package-install package))
+  (require package))
 #+end_SRC
 
 #+RESULTS:
