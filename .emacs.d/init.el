@@ -104,7 +104,7 @@
 
 (setq org-cycle-separator-lines 0)
 
-(setq org-agenda-files (list "/home/phrb/org/tasks/tasks.org"))
+(setq org-agenda-files (list "~/org/agenda.org"))
 
 (require 'ox-latex)
 
@@ -177,70 +177,6 @@
 
 (require 'org-attach)
 (setq org-link-abbrev-alist '(("att" . org-attach-expand-link)))
-
-(require 'org2jekyll)
-
-(setq org2jekyll-blog-author       "phrb")
-(setq org2jekyll-source-directory  (expand-file-name "~/code/phrb.github.io/org"))
-(setq org2jekyll-jekyll-directory  (expand-file-name "~/code/phrb.github.io"))
-(setq org2jekyll-jekyll-drafts-dir "")
-(setq org2jekyll-jekyll-posts-dir  "_posts/")
-(setq org-publish-project-alist
-      `(("page"
-         :base-directory ,(org2jekyll-input-directory)
-         :base-extension "org"
-         ;; :publishing-directory "/ssh:user@host:~/html/notebook/"
-         :publishing-directory ,(org2jekyll-output-directory)
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4
-         :section-numbers nil
-         :with-toc nil
-         :html-head "<link rel=\"stylesheet\" href=\"./css/style.css\" type=\"text/css\"/>"
-         :html-preamble t
-         :recursive t
-         :make-index t
-         :html-extension "html"
-         :body-only t)
-
-        ("post"
-         :base-directory ,(org2jekyll-input-directory)
-         :base-extension "org"
-         :publishing-directory ,(org2jekyll-output-directory org2jekyll-jekyll-posts-dir)
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4
-         :section-numbers nil
-         :with-toc nil
-         :html-head "<link rel=\"stylesheet\" href=\"./css/style.css\" type=\"text/css\"/>"
-         :html-preamble t
-         :recursive t
-         :make-index t
-         :html-extension "html"
-         :body-only t)
-
-        ("images"
-         :base-directory ,(org2jekyll-input-directory "img")
-         :base-extension "jpg\\|gif\\|png"
-         :publishing-directory ,(org2jekyll-output-directory "img")
-         :publishing-function org-publish-attachment
-         :recursive t)
-
-        ("js"
-         :base-directory ,(org2jekyll-input-directory "js")
-         :base-extension "js"
-         :publishing-directory ,(org2jekyll-output-directory "js")
-         :publishing-function org-publish-attachment
-         :recursive t)
-
-        ("css"
-         :base-directory ,(org2jekyll-input-directory "css")
-         :base-extension "css\\|el"
-         :publishing-directory ,(org2jekyll-output-directory "css")
-         :publishing-function org-publish-attachment
-         :recursive t)
-
-        ("web" :components ("images" "js" "css"))
-        )
-      )
 
 (require 'ox-extra)
 (ox-extras-activate '(ignore-headlines))
