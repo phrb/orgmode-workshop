@@ -1,15 +1,32 @@
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 (package-initialize)
 (require 'package)
 (setq package-archives '(("org" . "https://orgmode.org/elpa/")
                          ("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
 
-(dolist (package  '(lua-mode ace-window jupyter yaml-mode  ein org
-                             markdown-mode aggressive-indent counsel ess swiper kv which-key s
-                             powerline julia-mode ivy deferred dash-functional base16-theme))
-  (unless (package-installed-p package)
-    (package-install package))
-  (require package))
+(setq package-selected-packages '(lua-mode
+                                  ace-window
+                                  jupyter
+                                  yaml-mode
+                                  ein
+                                  org
+                                  markdown-mode
+                                  aggressive-indent
+                                  counsel
+                                  ess
+                                  swiper
+                                  kv
+                                  which-key
+                                  s
+                                  powerline
+                                  julia-mode
+                                  ivy
+                                  deferred
+                                  dash-functional
+                                  base16-theme))
+
+(package-install-selected-packages)
 
 (savehist-mode 1)
 (desktop-save-mode 1)
