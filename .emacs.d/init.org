@@ -290,9 +290,9 @@ This is currently not working correctly:
 (add-to-list 'org-structure-template-alist
              '("S" . "SRC shell :results output :session *Shell*"))
 (add-to-list 'org-structure-template-alist
-             '("j" . "SRC jupyter-julia :results output :session jl :async yes"))
+             '("j" . "SRC ein-julia :results output :session localhost"))
 (add-to-list 'org-structure-template-alist
-             '("p" . "SRC jupyter-python :results output :session py :async yes"))
+             '("p" . "SRC ein-python :results output :session localhost"))
 (add-to-list 'org-structure-template-alist
              '("r" . "SRC R :results output :session *R*"))
 (add-to-list 'org-structure-template-alist
@@ -301,20 +301,20 @@ This is currently not working correctly:
 *** Babel Languages (org-babel)
 Loading the following babel languages:
 #+begin_SRC emacs-lisp :tangle init.el
-(require 'ob-julia)
+(require 'ob-ein)
+(setq inferior-julia-program-name "/usr/local/bin/julia")
 
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
+   (ein . t)
    (R . t)
-   (julia . t)
    (python . t)
    (emacs-lisp . t)
    (shell . t)
    (ruby . t)
    (org . t)
    (makefile . t)
-   (jupyter . t)
    ))
 #+end_SRC
 *** Expanding Linked Attachment Images (org-attach)
